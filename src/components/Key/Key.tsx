@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { NoteType } from "../../domain/note";
 import styles from "./Key.module.css";
 import { usePressObserver } from "../PressObserver/userPressObserver";
+import { FunctionComponent } from "react";
 
 type PressCallback = () => void;
 
@@ -13,7 +14,7 @@ type KeyProps = {
   onDown: PressCallback;
 };
 
-export const Key: React.FC<KeyProps> = (props) => {
+export const Key: FunctionComponent<KeyProps> = (props) => {
   const { type, label, onDown, onUp, ...rest } = props;
 
   const pressed = usePressObserver({
@@ -27,6 +28,7 @@ export const Key: React.FC<KeyProps> = (props) => {
       className={clsx(styles.key, styles[type], pressed && "is-pressed")}
       onMouseDown={onDown}
       onMouseUp={onUp}
+      onMouseLeave={onUp}
       type="button"
       {...rest}
     >
