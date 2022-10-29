@@ -1,19 +1,3 @@
-button {
-  border: none;
-  border-radius: 0;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  background: none;
-  appearance: none;
-  color: inherit;
-  font: inherit;
-  line-height: normal;
-  cursor: pointer;
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-}
-
 .key {
   position: relative;
   font-size: var(--font-size);
@@ -44,14 +28,14 @@ button {
 }
 
 .natural:active,
-.natural.is-active {
+.natural.is-pressed {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sharp:active,
-.sharp.is-active,
+.sharp.is-pressed,
 .flat:active,
-.flat.is-active {
+.flat.is-pressed {
   background-color: #555;
 }
 
@@ -69,4 +53,51 @@ button {
 .flat:disabled {
   color: rgba(255, 255, 255, 0.4);
   background-color: #111;
+}
+
+.key {
+  --radius: 2px;
+  --font-size: 0.6rem;
+  --white-key-width: 20px;
+  --white-key-height: calc(var(--white-key-width) * 4.57);
+  --white-key-padding: calc(var(--white-key-height) / 1.28);
+  --black-key-width: calc(var(--white-key-width) / 1.6);
+  --black-key-height: calc(var(--white-key-height) / 1.77);
+  --black-key-padding: calc(var(--black-key-height) / 1.5);
+}
+
+@media (min-width: 380px) {
+  .key {
+    --white-key-width: 25px;
+    --radius: 5px;
+    --font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 540px) {
+  .key {
+    --white-key-width: 35px;
+    --font-size: 1rem;
+  }
+}
+
+@media (min-width: 720px) {
+  .key {
+    --white-key-width: 45px;
+    --font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .key {
+    --white-key-width: 65px;
+    --font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1120px) {
+  .key {
+    --white-key-width: 75px;
+    --font-size: 1.8rem;
+  }
 }
